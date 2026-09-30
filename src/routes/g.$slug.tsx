@@ -33,7 +33,7 @@ interface GalleryPhoto {
 function PublicGallery() {
   const { slug } = Route.useParams();
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
+
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   const galleryQuery = useQuery({
