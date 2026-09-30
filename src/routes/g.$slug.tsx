@@ -254,8 +254,7 @@ function PublicGallery() {
           </div>
         </div>
       )}
-      {/* garante que o queryClient existe mesmo sem uso direto */}
-      <span className="hidden" data-qc={!!queryClient} />
     </div>
   );
 }
+
