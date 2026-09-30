@@ -62,14 +62,11 @@ function AuthPage() {
       navigate({ to: "/dashboard" });
       return;
     }
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: window.location.origin,
-        data: studioName.trim() ? { studio_name: studioName.trim() } : undefined,
-      },
-    });
+    const options: { emailRedirectTo: string; data?: Record<string, string> } = {
+      emailRedirectTo: window.location.origin,
+    };
+    if (studioName.trim()) options.data = { studio_name: studioName.trim() };
+    const { data, error } = await supabase.auth.signUp({ email, password, options });
     if (error) {
       setError(translateError(error.message));
       setBusy(false);

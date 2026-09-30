@@ -80,7 +80,7 @@ function DashboardPage() {
         await supabase.from("profiles").insert({ id: user.id, studio_name: name });
         setStudioName(name);
       } else {
-        setStudioName(profile.studio_name);
+        setStudioName(profile['studio_name'] ?? "Meu estúdio");
       }
     });
   }, []);

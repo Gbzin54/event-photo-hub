@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, Camera } from "lucide-react";
+import { ArrowLeft, Camera, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { signedUrl } from "@/lib/photos";
 

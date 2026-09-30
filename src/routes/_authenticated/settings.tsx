@@ -37,8 +37,8 @@ function SettingsPage() {
         .eq("id", user.id)
         .maybeSingle();
       if (profile) {
-        setStudioName(profile.studio_name ?? "");
-        setBio(profile.bio ?? "");
+        setStudioName(profile['studio_name'] ?? "");
+        setBio(profile['bio'] ?? "");
       } else {
         const name = (user.user_metadata?.studio_name as string | undefined) ?? "Meu estúdio";
         await supabase.from("profiles").insert({ id: user.id, studio_name: name });
