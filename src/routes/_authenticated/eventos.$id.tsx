@@ -122,7 +122,7 @@ function EventPage() {
     const link = `${window.location.origin}/g/${event.slug}`;
     try {
       await navigator.clipboard.writeText(link);
-ed    } catch {
+    } catch {
       window.prompt("Copie o link da galeria:", link);
     }
     setCopied(true);
