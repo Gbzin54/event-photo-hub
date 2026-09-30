@@ -14,7 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      events: {
+        Row: {
+          cover_url: string | null
+          created_at: string
+          description: string | null
+          event_date: string | null
+          id: string
+          is_public: boolean
+          location: string | null
+          slug: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          event_date?: string | null
+          id?: string
+          is_public?: boolean
+          location?: string | null
+          slug: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          event_date?: string | null
+          id?: string
+          is_public?: boolean
+          location?: string | null
+          slug?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      photos: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          storage_path: string
+          url: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          storage_path: string
+          url: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          storage_path?: string
+          url?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "photos_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          id: string
+          studio_name: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          id: string
+          studio_name?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          id?: string
+          studio_name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
